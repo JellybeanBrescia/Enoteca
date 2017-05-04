@@ -1,4 +1,3 @@
-package magazzino;
 
 public class Vino {
 	private String name;

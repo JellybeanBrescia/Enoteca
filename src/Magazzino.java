@@ -1,4 +1,4 @@
-package magazzino;
+
 
 import java.util.Vector;
 
@@ -16,8 +16,6 @@ public class Magazzino {
 	
 	public  Magazzino(Vector<Vino> vino){
 		this.vino=vino;
-		
-		
 		 
 	}
 	
