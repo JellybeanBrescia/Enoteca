@@ -67,7 +67,7 @@ public class Vino {
 		this.cont = cont;
 	}	
 	public String toString(){
-		 String tmp = "Il " +name+ " di valore " +prezzo+valuta+ " prodotto nel " +data+ " in " +località+ " da " +produttore+ " in quantità di " +cont+ "bottiglie";
+		 String tmp = "Il " +name+ " di valore " +prezzo+valuta+ " prodotto nel " +data+ " in " +località+ " da " +produttore+ " in quantità di " +cont+ " bottiglie";
 		 return tmp;
 	}
 	
