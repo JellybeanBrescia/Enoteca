@@ -7,6 +7,7 @@ public class Vino {
 	private String produttore;
 	private String valuta;
 	private int cont;
+	private double tassoRiferimento;
 	
 	//COSTRUTTORI
 	public Vino(String name, double prezzo, int data, String località, String produttore, String valuta, int cont) {
@@ -60,6 +61,12 @@ public class Vino {
 	}
 	public void setValuta(String valuta) {
 		this.valuta = valuta;
+	}
+	public double getTassoRiferimento() {
+		return tassoRiferimento;
+	}
+	public void setTassoRiferimento(double tassoRiferimento) {
+		this.tassoRiferimento = tassoRiferimento;
 	}
 	public int getCont() {
 		return cont;
