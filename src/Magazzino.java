@@ -1,27 +1,15 @@
-
-
-import java.lang.reflect.GenericArrayType;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class Magazzino {
 	Scanner lettore=new Scanner(System.in);
-	private Vector<Integer> dataVino;
-	private String name;
-	private double prezzo;
-	private int data;
-	private String località;
-	private String produttore;
-	private String valuta;
-	private int cont;
 	private Vector<Vino> vini;
-	private Vector<String> nomeVino;
 	private double guadagnoDollari=0;
 	private double guadagnoEuro=0;
 
 
-	Valuta euro = new Valuta("euro",1);
-	Valuta dollaro = new Valuta("Dollaro",0.90);
+	Valuta euro = new Valuta("€", 1.11);
+	Valuta dollaro = new Valuta("$", 0.90);
 	
 	
 	public  Magazzino(Vector<Vino> vino){
@@ -33,7 +21,7 @@ public class Magazzino {
 
 	public void listaVini(){
 		for(int i=0;i<vini.size();i++){
-			System.out.println(vini.get(i).getName());
+			System.out.println(vini.get(i).toString());
 		}
 
 	}
@@ -53,32 +41,25 @@ public class Magazzino {
 
 	}
 	public void possGuadagno(String valuta){
-		Valuta dollaro = new Valuta("Dollaro",0.9);
-		Valuta euro = new Valuta("Euro",1.1);
-
-
-
-		if(dollaro.equals(valuta)){
-			for(int i=0;i<vini.size();i++){
-				guadagnoDollari=guadagnoDollari+prezzo;
+		double guadagno = 0;
+		for(int i=0;i<vini.size();i++){
+			if(vini.get(i).getValuta().equalsIgnoreCase(valuta)){
+				guadagno += vini.get(i).getPrezzo()*vini.get(i).getCont();
+			}else{
+				if(valuta.equals(dollaro.getValuta())){
+					guadagno += vini.get(i).getPrezzo()*vini.get(i).getCont()*dollaro.getTassoRiferimento();
+				}else{
+					guadagno += vini.get(i).getPrezzo()*vini.get(i).getCont()*euro.getTassoRiferimento();
+				}
 			}
-			System.out.println("Guadagno: "+guadagnoDollari+"$");
 		}
-		else if (euro.equals(valuta)){
-			for(int i=0;i<vini.size();i++){
-				guadagnoEuro=guadagnoEuro+prezzo;
-			}
-			System.out.println("Guadagno: "+guadagnoEuro+"€");
-		}
-		else {
-			System.out.println("ERRORE: Valuta sconosciuta");
-		}
-	
+		System.out.println("il valore totale di tutte le bottiglie è di:"+guadagno+valuta);
+	}	
 
-
-	}
-	public void annata(int data,String name){
+	public void annata(){
+		System.out.println("inserisci la prima data");
 		int anno1=lettore.nextInt();
+		System.out.println("inserisci la seconda data");
 		int anno2=lettore.nextInt();
 		int min=0;
 		int max=0;
@@ -90,18 +71,10 @@ public class Magazzino {
 			min=anno2;
 			max=anno1;
 		}
+		
 		for(int i=0;i<vini.size();i++){
-			int temp=vini.get(i).getData();
-			if(temp>min||temp<max)
-				dataVino.add(temp);
-		}
-
-		for(int i=0;i<vini.size();i++){
-			String temp=vini.get(i).getName();
-			nomeVino.add(temp);
-		}
-		for(int i=0;i<vini.size();i++){
-			System.out.println(vini.get(i).getName()+":"+vini.get(i).getData());
+			if(vini.get(i).getData()>=min && vini.get(i).getData()<=max)
+				System.out.println(vini.get(i).toString());
 		}
 
 

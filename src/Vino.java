@@ -1,9 +1,8 @@
-
 public class Vino {
 	private String name;
 	private double prezzo;
 	private int data;
-	private String località;
+	private String localita;
 	private String produttore;
 	private String valuta;
 	private int cont;
@@ -15,7 +14,7 @@ public class Vino {
 		this.name = name;
 		this.prezzo = prezzo;
 		this.data = data;
-		this.località = località;
+		this.localita = località;
 		this.produttore = produttore;
 		this.valuta = valuta;
 		this.cont = cont;
@@ -26,8 +25,15 @@ public class Vino {
 	}
 	
 	//GETTESR AND SETTERS
+	
 	public String getName() {
 		return name;
+	}
+	public String getLocalita() {
+		return localita;
+	}
+	public void setLocalita(String localita) {
+		this.localita = localita;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -45,10 +51,10 @@ public class Vino {
 		this.data = data;
 	}
 	public String getLocalità() {
-		return località;
+		return localita;
 	}
 	public void setLocalità(String località) {
-		this.località = località;
+		this.localita = località;
 	}
 	public String getProduttore() {
 		return produttore;
@@ -75,7 +81,7 @@ public class Vino {
 		this.cont = cont;
 	}	
 	public String toString(){
-		 String tmp = "Il " +name+ " di valore " +prezzo+valuta+ " prodotto nel " +data+ " in " +località+ " da " +produttore+ " in quantità di " +cont+ "bottiglie";
+		 String tmp = "Nome:" +name+ " Costo:" +prezzo+valuta+ " Annata:" +data+ " località:" +localita+ " Produttore:" +produttore+ "Numero bottiglie:"+cont;
 		 return tmp;
 	}
 	
